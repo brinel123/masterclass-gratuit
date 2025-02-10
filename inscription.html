@@ -12,14 +12,20 @@
         <p>💡 Validez votre inscription et préparez-vous à transformer votre avenir grâce à l'E-commerce !</p>
 
         <form id="inscriptionForm">
-            <label for="name">Nom & Prénom</label>
-            <input type="text" id="name" name="name" required>
+            <div class="form-group">
+                <label for="name">Nom & Prénom</label>
+                <input type="text" id="name" name="name" required>
+            </div>
 
-            <label for="phone">Numéro de Téléphone</label>
-            <input type="tel" id="phone" name="phone" required>
+            <div class="form-group">
+                <label for="phone">Numéro de Téléphone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
             <button type="submit" class="cta">VALIDER</button>
         </form>
@@ -37,7 +43,7 @@
                 email: document.getElementById("email").value
             };
 
-            fetch("https://script.google.com/macros/s/AKfycbzwZa5GNZFMC6FzuepF4w_Vdp_AMTbQ5Gw5soZXpEA6SSHbODoet6QLFbhOStUFWvc/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbxhu1cMuh9-98l40c8gLNeevpWz7GiMybrmD9KuJ-2K0U2Vv4bY7UySIqd07-27gzer/exec", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

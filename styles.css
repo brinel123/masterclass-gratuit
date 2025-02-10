@@ -162,3 +162,32 @@ progress::-webkit-progress-value {
     from { transform: translateY(0px); opacity: 1; }
     to { transform: translateY(5px); opacity: 0.8; }
 }
+/* Style des champs */
+input {
+    background-color: transparent;
+    border: 3px solid #F59E0B;
+    padding: 15px;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 8px;
+    width: 80%;
+    display: block;
+    margin: 10px auto;
+    font-weight: bold;
+}
+
+.cta {
+    background-color: #10B981;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.cta:hover {
+    background-color: #059669;
+    transform: scale(1.1);
+}
+

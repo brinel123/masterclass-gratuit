@@ -3,39 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inscription - Masterclass</title>
+    <title>Récompense VIP 🎉</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <main class="container">
-        <h1>INSCRIPTION</h1>
-        <p>💡 Validez votre inscription et préparez-vous à transformer votre avenir grâce à l'E-commerce !</p>
+        <h1 class="gold-rain">🎉 Félicitations, tu es VIP ! 🎉</h1>
+        <p>🚀 Tu as réussi à inviter 5 amis ! Bienvenue dans le **Club VIP de la Masterclass** 🎟️</p>
+        
+        <p>🔥 **Voici ta récompense exclusive :** 🔥</p>
+        <ul>
+            <li>✅ Accès à **10 produits gagnants** testés et approuvés</li>
+            <li>✅ Stratégies avancées pour booster ton business e-commerce</li>
+            <li>✅ Support VIP et accès à une communauté d'élite</li>
+        </ul>
 
-        <form id="inscriptionForm">
-            <label for="name">Nom & Prénom</label>
-            <input type="text" id="name" name="name" required>
+        <br>
 
-            <label for="phone">Numéro de Téléphone</label>
-            <input type="tel" id="phone" name="phone" required>
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <button type="submit" class="cta">VALIDER</button>
-        </form>
-
-        <p id="message" style="display:none; color: green; font-weight: bold;">✅ Inscription envoyée avec succès !</p>
-        <p id="errorMessage" style="display:none; color: red; font-weight: bold;">❌ Erreur lors de l'inscription !</p>
+        <a id="vipButton" href="#" class="cta">🎉 Confirmer mon statut VIP</a>
     </main>
 
     <script>
-        document.getElementById("inscriptionForm").addEventListener("submit", function(event) {
+        document.getElementById("vipButton").addEventListener("click", function(event) {
             event.preventDefault();
 
             var formData = new FormData();
-            formData.append("name", document.getElementById("name").value);
-            formData.append("phone", document.getElementById("phone").value);
-            formData.append("email", document.getElementById("email").value);
+            formData.append("name", localStorage.getItem("userName"));
+            formData.append("phone", localStorage.getItem("userPhone"));
+            formData.append("email", localStorage.getItem("userEmail"));
+            formData.append("isVIP", "VIP");
 
             fetch("https://script.google.com/macros/s/AKfycbw7_JlTjDSArLWwGe7e_t-8yBxu9_BJSlVx9h-ephxeLeHvh8WpgqXIemKSAmwpW3iK/exec", {
                 method: "POST",
@@ -44,19 +40,12 @@
             .then(response => response.text())
             .then(data => {
                 console.log("Réponse du serveur :", data);
-                if (data.includes("Données enregistrées avec succès")) {
-                    document.getElementById("message").style.display = "block";
-                    localStorage.setItem("userName", formData.get("name"));
-                    localStorage.setItem("userPhone", formData.get("phone"));
-                    localStorage.setItem("userEmail", formData.get("email"));
-                    setTimeout(() => { window.location.href = "confirmation.html"; }, 2000);
-                } else {
-                    document.getElementById("errorMessage").style.display = "block";
-                }
+                alert("✅ Ton statut VIP est confirmé !");
+                window.location.href = "index.html";
             })
             .catch(error => {
                 console.error("Erreur :", error);
-                document.getElementById("errorMessage").style.display = "block";
+                alert("Erreur lors de la confirmation VIP. Réessaie.");
             });
         });
     </script>

@@ -20,4 +20,38 @@
 
         <br>
 
-        <a id="vipButton" href="#" class="cta">🎉 Confirmer mon statut VIP
+        <a id="vipButton" href="#" class="cta">🎉 Confirmer mon statut VIP</a>
+    </main>
+
+    <script>
+        document.getElementById("vipButton").addEventListener("click", function(event) {
+            event.preventDefault();
+
+            var formData = {
+                name: localStorage.getItem("userName"),
+                phone: localStorage.getItem("userPhone"),
+                email: localStorage.getItem("userEmail"),
+                isVIP: true
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbxhu1cMuh9-98l40c8gLNeevpWz7GiMybrmD9KuJ-2K0U2Vv4bY7UySIqd07-27gzer/exec", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log("Réponse du serveur :", data);
+                alert("✅ Ton statut VIP est confirmé !");
+                window.location.href = "index.html";
+            })
+            .catch(error => {
+                console.error("Erreur :", error);
+                alert("Erreur lors de la confirmation VIP. Réessaie.");
+            });
+        });
+    </script>
+</body>
+</html>

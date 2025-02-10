@@ -25,6 +25,7 @@
         </form>
 
         <p id="message" style="display:none; color: green; font-weight: bold;">✅ Inscription envoyée avec succès !</p>
+        <p id="errorMessage" style="display:none; color: red; font-weight: bold;">❌ Erreur lors de l'inscription !</p>
     </main>
 
     <script>
@@ -36,22 +37,26 @@
             formData.append("phone", document.getElementById("phone").value);
             formData.append("email", document.getElementById("email").value);
 
-            fetch("https://script.google.com/macros/s/AKfycbw-Bra_k6MUFacDbUOGl0u8o77bzNlv5lAuHmzEc8e8f2OlIO0YkhkBSCK57KN19hpO/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbw7_JlTjDSArLWwGe7e_t-8yBxu9_BJSlVx9h-ephxeLeHvh8WpgqXIemKSAmwpW3iK/exec", {
                 method: "POST",
                 body: formData
             })
             .then(response => response.text())
             .then(data => {
                 console.log("Réponse du serveur :", data);
-                document.getElementById("message").style.display = "block";
-                localStorage.setItem("userName", formData.get("name"));
-                localStorage.setItem("userPhone", formData.get("phone"));
-                localStorage.setItem("userEmail", formData.get("email"));
-                setTimeout(() => { window.location.href = "confirmation.html"; }, 2000);
+                if (data.includes("Données enregistrées avec succès")) {
+                    document.getElementById("message").style.display = "block";
+                    localStorage.setItem("userName", formData.get("name"));
+                    localStorage.setItem("userPhone", formData.get("phone"));
+                    localStorage.setItem("userEmail", formData.get("email"));
+                    setTimeout(() => { window.location.href = "confirmation.html"; }, 2000);
+                } else {
+                    document.getElementById("errorMessage").style.display = "block";
+                }
             })
             .catch(error => {
                 console.error("Erreur :", error);
-                alert("Erreur lors de l'inscription. Veuillez réessayer.");
+                document.getElementById("errorMessage").style.display = "block";
             });
         });
     </script>

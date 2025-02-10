@@ -32,23 +32,24 @@
         document.getElementById("inscriptionForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            var formData = new FormData();
+            var formData = new URLSearchParams();
             formData.append("name", document.getElementById("name").value);
             formData.append("phone", document.getElementById("phone").value);
             formData.append("email", document.getElementById("email").value);
 
-            fetch("https://script.google.com/macros/s/AKfycbw7_JlTjDSArLWwGe7e_t-8yBxu9_BJSlVx9h-ephxeLeHvh8WpgqXIemKSAmwpW3iK/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbxuhWMbaSAmrQcw0yzxrw5VauwdS-FmwaUyBFS5IZvfe_-XoA77c_BJtfi57RvZN_d-/exec", {
                 method: "POST",
-                body: formData
+                body: formData,
+                headers: { "Content-Type": "application/x-www-form-urlencoded" }
             })
             .then(response => response.text())
             .then(data => {
                 console.log("Réponse du serveur :", data);
                 if (data.includes("Données enregistrées avec succès")) {
                     document.getElementById("message").style.display = "block";
-                    localStorage.setItem("userName", formData.get("name"));
-                    localStorage.setItem("userPhone", formData.get("phone"));
-                    localStorage.setItem("userEmail", formData.get("email"));
+                    localStorage.setItem("userName", document.getElementById("name").value);
+                    localStorage.setItem("userPhone", document.getElementById("phone").value);
+                    localStorage.setItem("userEmail", document.getElementById("email").value);
                     setTimeout(() => { window.location.href = "confirmation.html"; }, 2000);
                 } else {
                     document.getElementById("errorMessage").style.display = "block";

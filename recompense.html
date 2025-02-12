@@ -10,13 +10,6 @@
     <main class="container">
         <h1 class="gold-rain">🎉 Félicitations, tu es VIP ! 🎉</h1>
         <p>🚀 Tu as réussi à inviter 5 amis ! Bienvenue dans le **Club VIP de la Masterclass** 🎟️</p>
-        
-        <p>🔥 **Voici ta récompense exclusive :** 🔥</p>
-        <ul>
-            <li>✅ Accès à **10 produits gagnants** testés et approuvés</li>
-            <li>✅ Stratégies avancées pour booster ton business e-commerce</li>
-            <li>✅ Support VIP et accès à une communauté d'élite</li>
-        </ul>
 
         <br>
 
@@ -31,9 +24,8 @@
             formData.append("name", localStorage.getItem("userName"));
             formData.append("phone", localStorage.getItem("userPhone"));
             formData.append("email", localStorage.getItem("userEmail"));
-            formData.append("isVIP", "VIP");
 
-            fetch("https://script.google.com/macros/s/AKfycbw7_JlTjDSArLWwGe7e_t-8yBxu9_BJSlVx9h-ephxeLeHvh8WpgqXIemKSAmwpW3iK/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbwVEpSbWQjjb77tBe3HZGtgIkdkA3Ek6dp5dgVq2CsJDkjgfEf3UI-E3pUSm6iScjju/exec", {
                 method: "POST",
                 body: formData
             })

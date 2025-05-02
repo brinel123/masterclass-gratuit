@@ -4,7 +4,7 @@ body {
     color: #CCCCCC;
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    margin: 0px;;
+    margin: 50px;;
     padding: 0;
     position: relative;
 }
@@ -12,7 +12,7 @@ body {
 /* 🏆 Titres et textes */
 h1 {
     color: #F59E0B;
-    font-size: 2.8rem;
+    font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -23,7 +23,7 @@ h2, h3 {
 
 p {
     color: #CCCCCC;
-    font-size: 1.2rem;
+    font-size: 0.5rem;
 }
 
 /* 🎨 Couleurs spécifiques */
@@ -33,7 +33,7 @@ p {
 
 .formateur {
     color: #3B82F6;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
     opacity: 0;
@@ -57,7 +57,7 @@ p {
     border-radius: 50%;
     text-align: center;
     font-weight: bold;
-    font-size: 1.8rem;
+    font-size: 1rem;
     background-color: transparent;
     border: 3px solid orange;
     color: orange;
@@ -73,7 +73,7 @@ p {
     padding: 15px 30px;
     display: inline-block;
     margin: 20px auto;
-    font-size: 1.4rem;
+    font-size: 1rem;
     text-decoration: none;
     transition: background 0.3s, transform 0.3s;
     animation: bounce 1.5s infinite alternate;
@@ -92,13 +92,13 @@ p {
 
 /* 🏅 Icône de validation animée */
 .icon-container {
-    font-size: 5rem;
+    font-size: 3rem;
     color: #10B981;
     animation: pulse 1.5s infinite alternate;
 }
 
 .alert-icon {
-    font-size: 5rem;
+    font-size: 3rem;
     color: #F59E0B;
     animation: blink 1s infinite alternate;
 }

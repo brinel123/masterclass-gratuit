@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
+    <img src="image\logo.png"
+    alt="image d'exemple" 
+    class="logo">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,39 +10,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main class="container">
-        <h1 class="gold-rain">🎉 Félicitations, tu es VIP ! 🎉</h1>
-        <p>🚀 Tu as réussi à inviter 5 amis ! Bienvenue dans le **Club VIP de la Masterclass** 🎟️</p>
+     <!-- Conteneur pour les feux d'artifice -->
+     <div id="fireworks-container"></div>
 
+     <script src="script.js"></script>
+        
+
+    <main class="container">
+        <h2 class="titre-recompense01pourfte">🎉 Félicitations tu es ! 🎉 </h2>
+        <br>
+        <img src="image\vip.webp"
+        alt="image d'exemple" 
+        class="image-clignotante3">
         <br>
 
-        <a id="vipButton" href="#" class="cta">🎉 Confirmer mon statut VIP</a>
-    </main>
+       
 
-    <script>
-        document.getElementById("vipButton").addEventListener("click", function(event) {
-            event.preventDefault();
+        <a href="index.html" class="cta big-cta">Retour à l'accueil</a>
 
-            var formData = new FormData();
-            formData.append("name", localStorage.getItem("userName"));
-            formData.append("phone", localStorage.getItem("userPhone"));
-            formData.append("email", localStorage.getItem("userEmail"));
-
-            fetch("https://script.google.com/macros/s/AKfycbwVEpSbWQjjb77tBe3HZGtgIkdkA3Ek6dp5dgVq2CsJDkjgfEf3UI-E3pUSm6iScjju/exec", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log("Réponse du serveur :", data);
-                alert("✅ Ton statut VIP est confirmé !");
-                window.location.href = "index.html";
-            })
-            .catch(error => {
-                console.error("Erreur :", error);
-                alert("Erreur lors de la confirmation VIP. Réessaie.");
-            });
-        });
-    </script>
-</body>
-</html>
